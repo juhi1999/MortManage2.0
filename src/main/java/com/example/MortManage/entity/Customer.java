@@ -16,10 +16,10 @@ public class Customer {
     private int id;
 
     @Column(name="first_name")
-    private int firstname;
+    private String firstname;
 
     @Column(name="last_name")
-    private int lastname;
+    private String lastname;
 
     @Column(name="email")
     private String email;
@@ -36,7 +36,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int firstname, int lastname, String email, String address, String contact) {
+    public Customer(String firstname, String lastname, String email, String address, String contact) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -52,19 +52,19 @@ public class Customer {
         this.id = id;
     }
 
-    public int getFirstname() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstname(int firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public int getLastname() {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setLastname(int lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 

@@ -1,10 +1,10 @@
-package com.example.MortManage.DAO;
+package com.example.MortManage.service;
 
 import com.example.MortManage.entity.Customer;
 
 import java.util.List;
 
-public interface CustomerDAO {
+public interface CustomerService {
 
     List<Customer> AllCustomers();
 
