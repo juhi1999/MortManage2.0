@@ -1,5 +1,7 @@
 package com.example.MortManage.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -27,16 +29,58 @@ public class Mortgage {
     @Column(name="issue_date")
     private Date issue_date;
 
+    @Column(name="active")
+    private boolean active;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public float getRateOfInterest() {
+        return rateOfInterest;
+    }
+
+    public void setRateOfInterest(float rateOfInterest) {
+        this.rateOfInterest = rateOfInterest;
+    }
+
+    @Column(name="rateOfInterest")
+    private float rateOfInterest;
+
+    @JsonIgnore
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    @JsonIgnore
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+   }
+
+    @JsonBackReference
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.DETACH,CascadeType.REFRESH})
+    @JoinColumn(name="customer_id")
+    private Customer customer;
+
+
+
     public Mortgage() {
     }
 
-    public Mortgage(String productname, int marketvalue, int given, int left, Date issue_date) {
+    public Mortgage(String productname, int marketvalue, int given, int left, Date issue_date, float rateOfInterest,boolean active) {
         this.productname = productname;
         this.marketvalue = marketvalue;
         this.given = given;
         this.left = left;
         this.issue_date = issue_date;
+        this.rateOfInterest = rateOfInterest;
+        this.active=active;
     }
+
 
     public int getId() {
         return id;
@@ -86,6 +130,7 @@ public class Mortgage {
         this.issue_date = issue_date;
     }
 
+
     @Override
     public String toString() {
         return "Mortgage{" +
@@ -95,6 +140,8 @@ public class Mortgage {
                 ", given=" + given +
                 ", left=" + left +
                 ", issue_date=" + issue_date +
+                ", active=" + active +
+                ", rateOfInterest=" + rateOfInterest +
                 '}';
     }
 }

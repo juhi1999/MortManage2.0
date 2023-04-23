@@ -1,5 +1,7 @@
 package com.example.MortManage.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -30,8 +32,19 @@ public class Customer {
     @Column(name="contact")
     private String contact;
 
-//    @OneToMany(mappedBy = "customer",fetch=FetchType.LAZY)
-//    private List<Mortgage> mortgageList=new ArrayList<>();
+    @JsonManagedReference
+    @OneToMany(mappedBy="customer",cascade = CascadeType.ALL)
+    private List<Mortgage> mortgages;
+
+    @JsonIgnore
+    public List<Mortgage> getMortgages() {
+        return mortgages;
+    }
+
+    @JsonIgnore
+    public void setMortgages(List<Mortgage> mortgages) {
+        this.mortgages = mortgages;
+    }
 
     public Customer() {
     }
