@@ -51,4 +51,11 @@ public class MortgageDAOImpl implements MortgageDAO{
         entityManager.remove(theMortgage);
 
     }
+
+    @Override
+    public List<Mortgage> isActive() {
+        TypedQuery<Mortgage> theQuery =  entityManager.createQuery("from Mortgage where active=1",Mortgage.class);
+        List<Mortgage> mortgages=theQuery.getResultList();
+        return mortgages;
+    }
 }

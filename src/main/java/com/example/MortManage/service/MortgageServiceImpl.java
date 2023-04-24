@@ -37,4 +37,10 @@ public class MortgageServiceImpl implements MortgageService{
         mortgageDAO.deleteById(theId);
 
     }
+
+    @Override
+    public List<Mortgage> isActive() {
+       return mortgageDAO.isActive();
+    }
+
 }
