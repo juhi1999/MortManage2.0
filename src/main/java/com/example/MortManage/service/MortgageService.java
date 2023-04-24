@@ -14,4 +14,8 @@ public interface MortgageService {
     void deleteById(int theId);
 
     List<Mortgage>  isActive();
+
+    List<Mortgage> findMortgageByCustomerId(int customerId);
+
+
 }

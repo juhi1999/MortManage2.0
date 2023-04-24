@@ -16,4 +16,6 @@ public interface MortgageDAO {
     void deleteById(int theId);
 
     List<Mortgage> isActive();
+
+    List<Mortgage> findMortgageByCustomerId(int customerId);
 }

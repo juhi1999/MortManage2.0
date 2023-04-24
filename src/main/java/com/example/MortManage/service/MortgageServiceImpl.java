@@ -43,4 +43,9 @@ public class MortgageServiceImpl implements MortgageService{
        return mortgageDAO.isActive();
     }
 
+    @Override
+    public List<Mortgage> findMortgageByCustomerId(int customerId) {
+        return mortgageDAO.findMortgageByCustomerId(customerId);
+    }
+
 }

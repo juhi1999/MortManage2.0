@@ -1,6 +1,7 @@
 package com.example.MortManage.DAO;
 
 import com.example.MortManage.entity.Customer;
+import com.example.MortManage.entity.Mortgage;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface CustomerDAO {
     Customer save(Customer theCustomer);
 
     void deleteById(int theId);
+
 }

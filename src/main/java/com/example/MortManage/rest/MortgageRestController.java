@@ -32,4 +32,9 @@ public class MortgageRestController {
         return mortgageService.isActive();
     }
 
+    @GetMapping("/mortgage/{customerId}")
+    public List<Mortgage> findMortgagesByCustomerId(@PathVariable int customerId){
+        return mortgageService.findMortgageByCustomerId(customerId);
+    }
+
 }
