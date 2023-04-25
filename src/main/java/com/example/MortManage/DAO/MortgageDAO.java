@@ -18,4 +18,5 @@ public interface MortgageDAO {
     List<Mortgage> isActive();
 
     List<Mortgage> findMortgageByCustomerId(int customerId);
+
 }

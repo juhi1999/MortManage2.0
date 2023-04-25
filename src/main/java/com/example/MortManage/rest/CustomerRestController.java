@@ -1,10 +1,17 @@
 package com.example.MortManage.rest;
 
+import com.example.MortManage.Repository.CustomerRepository;
 import com.example.MortManage.entity.Customer;
 import com.example.MortManage.service.CustomerService;
+import jakarta.persistence.PostUpdate;
+import jakarta.persistence.TypedQuery;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 @RequestMapping("/api")
@@ -71,6 +78,11 @@ public class CustomerRestController {
     }
 
 
+    @PutMapping("/customers/update/{id}")
+    public String updateCustomer(@RequestBody Customer thecustomer, @PathVariable("id") int id){
+        this.customerService.updateCustomer(thecustomer,id);
+        return "updated";
+    }
 
 
 

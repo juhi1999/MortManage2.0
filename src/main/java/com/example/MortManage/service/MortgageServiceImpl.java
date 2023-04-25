@@ -48,4 +48,6 @@ public class MortgageServiceImpl implements MortgageService{
         return mortgageDAO.findMortgageByCustomerId(customerId);
     }
 
+
+
 }

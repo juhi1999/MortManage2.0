@@ -18,4 +18,6 @@ public interface MortgageService {
     List<Mortgage> findMortgageByCustomerId(int customerId);
 
 
+
+
 }

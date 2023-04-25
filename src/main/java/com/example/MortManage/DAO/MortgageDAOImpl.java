@@ -66,4 +66,6 @@ public class MortgageDAOImpl implements MortgageDAO{
         theQuery.setParameter("theData",customerId);
         return theQuery.getResultList();
     }
+
+
 }

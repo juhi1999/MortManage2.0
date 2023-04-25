@@ -13,4 +13,8 @@ public interface CustomerService {
     Customer save(Customer theCustomer);
 
     void deleteById(int theId);
+
+    public Customer updateCustomer(Customer theCustomer, int id);
+
+
 }
